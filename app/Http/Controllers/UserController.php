@@ -17,10 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::select('id','name','email','phone','country')->simplePaginate(25);
-        // $users = Cache::remember('users', 10, function () {
-        //     return DB::table('users')->get();
-        // });
-
+    
         $users_count = User::count();
 
         return view('user_records',compact('users','users_count'));
@@ -28,7 +25,7 @@ class UserController extends Controller
 
     public function users()
     {
-        $users = Cache::remember('users', 10, function () {
+        $users = Cache::remember('users', 60, function () {
             return User::select('id','name','email','phone','country')->get();
         });
 
