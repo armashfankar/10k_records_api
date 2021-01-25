@@ -1,8 +1,7 @@
-# Assignment - Smarty Streets
+# Technical Test - 10K Records API 
 
-
-This module stores the information of the user including
-user's address verified by Smarty Streets Platform.
+REST API which will read 10K records at a time from MySQL or MongoDB database & return them as JSON. 
+API RTT(Round trip time) should as minimum as possible. 
 
 This is the codebase for the module, which has one interface:
 
@@ -27,13 +26,13 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
 
 1. Clone the repository:
     ```shell script
-    git clone https://github.com/armashfankar/assignment_smartystreets.git
+    git clone https://github.com/armashfankar/10k_records_api.git
 
     ```
 
 2. Install the requirements for the repository using the `composer`:
    ```shell script
-    cd assignment_smartystreets/
+    cd 10k_records_api/
     composer install
     
     ```
@@ -44,37 +43,23 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
     
     ```
 
-4. Configure Database, SMTP and Smarty Streets Keys inside `.env` file:
+4. Configure Database `.env` file:
+    
     1. Database
     ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
-    DB_DATABASE=assignment
+    DB_DATABASE=10k_records
     DB_USERNAME=root
     DB_PASSWORD=
-    ```
-    2. SMTP
-    ```
-    MAIL_MAILER=smtp
-    MAIL_HOST=smtp.mailtrap.io
-    MAIL_PORT=2525
-    MAIL_USERNAME=null
-    MAIL_PASSWORD=null
-    MAIL_ENCRYPTION=null
-    ```
-    3. Smarty Street
-    ```
-    SMARTYSTREETS_AUTH_ID=
-    SMARTYSTREETS_AUTH_TOKEN=
-    SMARTYSTREETS_KEY=
-    ```
+
 
 5. Create MySQL Database:
      ```shell script
     mysql -u root -p
 
-    create database assignment;
+    create database 10k_records;
     
     ```
 
