@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // seeding user table with 10k fake records
         \App\Models\User::factory(10000)->create();
     }
 }

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->char('country',150)->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->index(['id', 'name', 'phone', 'country', 'created_at']);
         });
     }
 

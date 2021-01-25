@@ -43,7 +43,7 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
     
     ```
 
-4. Configure Database `.env` file:
+4. Configure Database & Cache Drive in `.env` file:
     
     1. Database
     ```
@@ -53,6 +53,12 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
     DB_DATABASE=10k_records
     DB_USERNAME=root
     DB_PASSWORD=
+    ```
+
+    2. Cache Drive
+    ```
+    CACHE_DRIVER=database
+    
 
 
 5. Create MySQL Database:
@@ -81,9 +87,14 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
     
     ```
 
-9. Open browser:
+9. Open browser (Home page will show you list of all 10000 records in a table):
     ```
     http://localhost:8000
     ````
-   
+
+10. API: Open Postman and make a GET request to the following URL:
+    ```
+    http://localhost:8000/api/get-users
+    ````
+
     

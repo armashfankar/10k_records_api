@@ -2,34 +2,36 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     /**
      * This function renders all user data on the page.
      * 
-     * Users data consists of following fields
-     * id, name, email, phone, country, created_at, updated_at
+     * Users data to be fetched consists of following fields
+     * id, name, email, phone, country
      * 
     */
-    public function users()
+    public function index()
     {
-        $users = User::simplePaginate(25);
+        $users = User::select('id','name','email','phone','country')->simplePaginate(25);
+        // $users = Cache::remember('users', 10, function () {
+        //     return DB::table('users')->get();
+        // });
+
         $users_count = User::count();
 
         return view('user_records',compact('users','users_count'));
     }
 
-
-    /**
-     * This function renders user login page.
-     * 
-     * Login form consists of 2 fields
-     * email & password
-     * 
-    */
-    public function login()
+    public function users()
     {
-        return view('login');
+        $users = Cache::remember('users', 10, function () {
+            return User::select('id','name','email','phone','country')->get();
+        });
+
+        return response($users, 200);
     }
 }
