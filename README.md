@@ -6,7 +6,8 @@ API RTT(Round trip time) should as minimum as possible.
 This is the codebase for the module, which has one interface:
 
 ### Live Demo (Hosted on Heroku)
-
+Web: https://api-10k-records.herokuapp.com
+API: https://api-10k-records.herokuapp.com/api/get-users
 
 ## Getting started
 
