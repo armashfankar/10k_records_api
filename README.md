@@ -69,10 +69,10 @@ uses the [Blade](https://laravel.com/docs/8.x/blade) templating system.
     
     ```
 
-7. Migrate database:
+7. Migrate database & seed 10k records:
     ```shell script
     php artisan migrate
-    
+    php artisan db:seed
     ```
 
 8. Run / Execute:

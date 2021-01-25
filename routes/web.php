@@ -14,8 +14,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [UserController::class, 'signup'])->name('signup');
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/', [UserController::class, 'users'])->name('users');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

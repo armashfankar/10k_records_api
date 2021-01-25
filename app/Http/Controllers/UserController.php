@@ -1,22 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     /**
-     * This function renders user signup page.
+     * This function renders all user data on the page.
      * 
-     * Signup form consists of 9 fields
-     * name, email, password, password_confirmation
-     * phone, street address, city, state, zip
+     * Users data consists of following fields
+     * id, name, email, phone, country, created_at, updated_at
      * 
     */
-    public function signup()
+    public function users()
     {
-        return view('signup');
+        $users = User::simplePaginate(25);
+        $users_count = User::count();
+
+        return view('user_records',compact('users','users_count'));
     }
 
 
